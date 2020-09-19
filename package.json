@@ -1,0 +1,17 @@
+{
+  "name": "@codemix/ts-sql",
+  "version": "1.0.0",
+  "description": "SQL database engine implemented purely in TypeScript type definitions.",
+  "main": "lib/index.js",
+  "author": "Charles Pick <charles@codemix.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^2.1.2",
+    "typescript": "beta"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "playground": "node scripts/bundle.js > playground.ts"
+  }
+}
