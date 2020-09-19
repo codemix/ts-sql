@@ -13,5 +13,16 @@
   "scripts": {
     "build": "tsc -b",
     "playground": "node scripts/bundle.js > playground.ts"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codemix/ts-sql.git"
+  },
+  "bugs": {
+    "url": "https://github.com/codemix/ts-sql/issues"
+  },
+  "homepage": "https://github.com/codemix/ts-sql#readme"
 }
