@@ -1,3 +1,5 @@
+import { Parse } from "./Parser";
+import { Print } from "./Printer";
 import { Query } from "./Query";
 
 // # Usage
@@ -34,7 +36,7 @@ export type DBv1 = typeof simpsons;
 // query as first type parameter, and a database as the second.
 // Note that all SQL keywords are UPPERCASE.
 export type EX1 = Query<
-  "SELECT firstName FROM people WHERE lastName = 'Simpson'",
+  "SELECT firstName AS name FROM people WHERE lastName = 'Simpson'",
   DBv1
 >;
 
@@ -88,7 +90,7 @@ export type DBv5 = Query<
 >;
 
 export type EX7 = Query<
-  "SELECT id, firstName FROM people WHERE isChild = false AND firstName LIKE 'M%'",
+  "SELECT id, firstName AS name FROM people WHERE isChild = false AND firstName LIKE 'M%'",
   DBv5
 >;
 
@@ -103,4 +105,14 @@ export type DBv6 = Query<
 export type EX9 = Query<
   "SELECT name, person.firstName, person.lastName FROM places INNER JOIN people AS person ON places.ownerId = person.id",
   DBv1
+>;
+
+// Bonus feature: Pretty printer. Turns AST nodes back into SQL fragments.
+// I gave up on this because TS and VSCode both (sensibly) escape newlines in
+// strings, so the output wasn't particularly pretty.
+
+export type PrinterEX0 = Print<
+  Parse<
+    'SELECT name,r.name AS roleName FROM users AS u INNER JOIN roles r ON u.roleId = r.id WHERE name = "Bob" AND awesome = true LIMIT 2 OFFSET 3'
+  >
 >;

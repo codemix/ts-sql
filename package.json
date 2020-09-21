@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "tsc -b",
-    "playground": "node scripts/bundle.js > playground.ts"
+    "playground": "node scripts/bundle.js > scripts/playground.ts"
   },
   "directories": {
     "lib": "lib"
