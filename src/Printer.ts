@@ -45,7 +45,7 @@ export type Print<T> =
       > :
   T extends AssignmentExpression<Identifier<infer Key>, infer Value> ?
       JoinStrings<[Key, '=', Print<Value>], ' '> :
-  `[CANNOT PRINT THIS AST NODE`;
+  `CANNOT PRINT THIS AST NODE`;
 
 type PrintArray<T> = T extends any[] ? {[K in keyof T]: Print<T[K]>} : never;
 
