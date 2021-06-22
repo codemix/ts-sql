@@ -24,7 +24,10 @@ export type MatchString<Candidate, Pattern extends string> =
   MatchString<EatFirstChar<Candidate>, Pattern> extends true ? true :
   false;
 
-export type Trim<T> = T extends ` ${infer Rest}` ? Trim<Rest> : T;
+export type Trim<T> = 
+  T extends ` ${infer Rest}` ? Trim<Rest> : 
+  T extends `\n${infer Rest}` ? Trim<Rest> :
+  T;
 
 
 type Indents = {
